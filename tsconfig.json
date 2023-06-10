@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./express-grpc-client"
+    },
+    {
+      "path": "./grpc-models"
+    },
+    {
+      "path": "./grpc-server-layer"
+    }
+  ]
+}

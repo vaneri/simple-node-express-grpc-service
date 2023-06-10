@@ -1,0 +1,26 @@
+// https://developers.google.com/protocol-buffers/docs/proto3?hl=ko#json
+// https://developers.google.com/protocol-buffers/docs/reference/proto3-spec
+syntax = "proto3";
+
+// https://developers.google.com/protocol-buffers/docs/proto3#packages-and-name-resolution
+package helloworld;
+
+// https://developers.google.com/protocol-buffers/docs/reference/google.protobuf
+import "google/protobuf/struct.proto";
+
+// https://developers.google.com/protocol-buffers/docs/style
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+  rpc SayHelloStreamRequest (stream HelloRequest) returns (HelloResponse) {}
+  rpc SayHelloStreamResponse (HelloRequest) returns (stream HelloResponse) {}
+  rpc SayHelloStream (stream HelloRequest) returns (stream HelloResponse) {}
+}
+
+message HelloRequest {
+  optional string name = 1;
+}
+
+message HelloResponse {
+  optional string message = 1;
+  optional bool snake_case = 2;
+}
