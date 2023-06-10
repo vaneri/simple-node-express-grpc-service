@@ -1,5 +1,7 @@
-#simple-node-express-grpc-service
+# simple-node-express-grpc-service
 Test of grpc service from a client to a server, with the integration of kakfa behind the scenes
+Usage of protocolbuffer service/model generation, kafka, node express
+
 
 # Prerequisite
 Download kafka
