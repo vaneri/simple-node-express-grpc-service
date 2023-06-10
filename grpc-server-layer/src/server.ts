@@ -5,7 +5,7 @@ import { HealthCheckResponse_ServingStatus } from '@vaneri/grpc-models/lib/model
 import { Greeter, GreeterService } from './services/Greeter';
 import { Health, HealthService, healthStatus } from './services/Health';
 import { logger } from './utils';
-import KafkaConsumerTestApp from './services/KafkaConsumer';
+import KafkaConsumer from './services/KafkaConsumer';
 
 // Do not use @grpc/proto-loader
 const server = new Server({
@@ -22,6 +22,6 @@ server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), (err: Erro
   logger.info(`gRPC:Server:${bindPort}`, new Date().toLocaleString());
   server.start();
 });
-KafkaConsumerTestApp()
+KafkaConsumer()
 // Change service health status
 healthStatus.set('helloworld.Greeter', HealthCheckResponse_ServingStatus.NOT_SERVING);

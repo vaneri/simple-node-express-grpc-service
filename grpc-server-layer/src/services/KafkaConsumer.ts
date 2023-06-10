@@ -10,11 +10,11 @@ const kafka = new Kafka({
 const consumer = kafka.consumer({ groupId: "test-consumer-group" });
 const run = async () => {
   await consumer.connect();
-  await consumer.subscribe({ topic: "number", fromBeginning: true });
+  await consumer.subscribe({ topic: "number" });
   logger.info(`consumer intiatilization`);
   await consumer.run({
     eachMessage: async ({ partition, message }) => {
-      logger.info("Received: ", {
+      logger.info("Consumer is receiving something, youhouuuu: ", {
         partition,
         offset: message.offset,
         value: message!.value!.toString(),
@@ -23,6 +23,5 @@ const run = async () => {
   });
 }
 
-let KafkaConsumerTestApp = () => run().catch(logger.error)
-
-export default KafkaConsumerTestApp;
+let KafkaConsumer = () => run().catch(logger.error)
+export default KafkaConsumer;
