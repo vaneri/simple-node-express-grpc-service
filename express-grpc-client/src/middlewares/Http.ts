@@ -5,7 +5,6 @@ import Log from './Log';
 import session from 'express-session';
 import compression from 'compression';
 
-
 class Http {
 	public static mount(_express: express.Application): express.Application {
 		Log.info('Booting the \'HTTP\' middleware...');

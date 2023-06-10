@@ -25,7 +25,7 @@ class Greeter implements GreeterServer {
     const res: Partial<HelloResponse> = { message: "nice work buddy" };
     const { name } = call.request;
     logger.info('sayHelloName:', name);
-    putMessage({ "correlationId": name, "message": "yeahhhhhhhh" });
+    putMessage({ correlationId: name, message: "yeahhhhhhhh" });
 
     if (name === 'error') {
       // https://grpc.io/grpc/node/grpc.html#.status__anchor

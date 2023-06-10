@@ -16,6 +16,7 @@ class GreatingsClient {
 			});
 
 		} catch (err) {
+			response.statusCode = 500;
 			return response.json({
 				err: err
 			});

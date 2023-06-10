@@ -15,7 +15,6 @@ class App {
     // Loads your Server
     public loadServer(): void {
         Log.info('Server :: Booting @ Master...');
-
         Express.init();
     }
 

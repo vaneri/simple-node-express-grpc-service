@@ -4,6 +4,15 @@ import cluster from 'cluster';
 import App from './providers/app.js';
 import NativeEvent from './event/NativeEvent.js';
 
+// this is extending the Request object globally
+declare global {
+    namespace Express {
+        export interface Request {
+            span?: any;
+        }
+    }
+}
+
 if (cluster.isPrimary) {
 	/**
 	 * Catches the process events

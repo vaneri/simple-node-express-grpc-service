@@ -5,7 +5,6 @@ import { GreeterClient, HelloRequest, HelloResponse } from '@vaneri/grpc-models/
 
 import Log from '../../../middlewares/Log';
 
-
 class GreatingGRPCClient {
 
     //https://github.com/grpc/grpc/blob/master/doc/keepalive.md

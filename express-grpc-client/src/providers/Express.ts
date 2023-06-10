@@ -8,7 +8,8 @@ import express from 'express';
 
 import Locals from './Locals';
 import Routes from './Routes';
-import Bootstrap from '../middlewares/Kernel';
+import Http from '../middlewares/Http';
+import JaegerMiddleware from '../middlewares/Jaeger';
 
 class Express {
 	/**
@@ -35,7 +36,8 @@ class Express {
 	 * Mounts all the defined middlewares
 	 */
 	private mountMiddlewares (): void {
-		this.express = Bootstrap.init(this.express);
+		this.express =  Http.mount(this.express);
+		this.express =  JaegerMiddleware.mount(this.express);
 	}
 
 	/**
