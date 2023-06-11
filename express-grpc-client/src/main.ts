@@ -1,8 +1,14 @@
+import { setupTracing } from './tracer/Instrumentations.js';
+setupTracing('express-grpc-client');
+
 import * as os from 'os';
 
 import cluster from 'cluster';
 import App from './providers/app.js';
 import NativeEvent from './event/NativeEvent.js';
+
+
+
 
 // this is extending the Request object globally
 declare global {
@@ -12,6 +18,7 @@ declare global {
         }
     }
 }
+
 
 if (cluster.isPrimary) {
 	/**

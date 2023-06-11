@@ -9,7 +9,6 @@ import express from 'express';
 import Locals from './Locals';
 import Routes from './Routes';
 import Http from '../middlewares/Http';
-import JaegerMiddleware from '../middlewares/Jaeger';
 
 class Express {
 	/**
@@ -37,7 +36,6 @@ class Express {
 	 */
 	private mountMiddlewares (): void {
 		this.express =  Http.mount(this.express);
-		this.express =  JaegerMiddleware.mount(this.express);
 	}
 
 	/**
