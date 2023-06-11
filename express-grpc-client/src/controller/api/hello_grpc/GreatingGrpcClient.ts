@@ -1,7 +1,7 @@
 
 import 'source-map-support/register';
 import { credentials, ServiceError } from '@grpc/grpc-js';
-import { GreeterClient, HelloRequest, HelloResponse } from '@vaneri/grpc-models/lib/models/helloworld'
+import { GreeterClient, HelloRequest, HelloResponse } from '@vaneri/grpc-models/src/models/helloworld'
 
 import Log from '../../../middlewares/Log';
 

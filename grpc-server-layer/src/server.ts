@@ -4,7 +4,7 @@ setupTracing('grpc-server-layer');
 import 'source-map-support/register';
 import { Server, ServerCredentials } from '@grpc/grpc-js';
 
-import { HealthCheckResponse_ServingStatus } from '@vaneri/grpc-models/lib/models/health';
+import { HealthCheckResponse_ServingStatus } from '@vaneri/grpc-models/src/models/health';
 import { Greeter, GreeterService } from './services/Greeter';
 import { Health, HealthService, healthStatus } from './services/Health';
 import { logger } from './utils';

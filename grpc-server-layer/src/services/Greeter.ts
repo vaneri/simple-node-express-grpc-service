@@ -3,7 +3,7 @@ import {
   status, UntypedHandleCall
 } from '@grpc/grpc-js';
 
-import { GreeterServer, GreeterService, HelloRequest, HelloResponse } from '@vaneri/grpc-models/lib/models/helloworld';
+import { GreeterServer, GreeterService, HelloRequest, HelloResponse } from '@vaneri/grpc-models/src/models/helloworld';
 //import { TestVaneri } from '@vaneri/simple-node-grpc-models/lib/models/testvaneri';
 import { logger, ServiceError } from '../utils';
 import putMessage from './KafkaProducer';
