@@ -6,5 +6,6 @@ const router = Router();
 
 router.get('/', Index.index);
 router.get('/person/greating', GreatingsClient.index)
+router.get('/health', Index.index);
 
 export default router;

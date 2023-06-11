@@ -10,14 +10,15 @@ diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO);
 
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { NodeTracerProvider, Sampler } from '@opentelemetry/sdk-trace-node';
-import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
 import { Resource } from '@opentelemetry/resources';
 import { AlwaysOnSampler } from '@opentelemetry/sdk-trace-base';
 import {  SemanticResourceAttributes as ResourceAttributesSC, SemanticAttributes } from '@opentelemetry/semantic-conventions';
 
 import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express';
-const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
+import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
+import { GrpcInstrumentation } from "@opentelemetry/instrumentation-grpc";
 
 export const setupTracing = (serviceName: string) => {
   const provider = new NodeTracerProvider({
@@ -30,12 +31,13 @@ export const setupTracing = (serviceName: string) => {
     tracerProvider: provider,
     instrumentations: [
       // Express instrumentation expects HTTP layer to be instrumented
-      HttpInstrumentation,
-      ExpressInstrumentation,
+      new HttpInstrumentation(),
+      new ExpressInstrumentation(),
+      new GrpcInstrumentation()
     ],
   });
 
-  provider.addSpanProcessor(new SimpleSpanProcessor(new JaegerExporter()));
+  provider.addSpanProcessor(new BatchSpanProcessor(new JaegerExporter()));
   console.log('loading of open telemetry');
   // Initialize the OpenTelemetry APIs to use the NodeTracerProvider bindings
   provider.register();

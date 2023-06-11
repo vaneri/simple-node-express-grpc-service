@@ -10,6 +10,7 @@ https://kafka.apache.org/downloads
 Install typescript globally
 ```console
 npm install -g typescript 
+npm install -g nodemon
 ```
 
 # how to get started

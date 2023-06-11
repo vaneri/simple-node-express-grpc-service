@@ -5,7 +5,7 @@ import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-proto";
 import { OTLPMetricExporter } from "@opentelemetry/exporter-metrics-otlp-proto";
 import { PeriodicExportingMetricReader } from "@opentelemetry/sdk-metrics";
 
-const sdk = new opentelemetry.NodeSDK({
+const openTelemetrySDK = new opentelemetry.NodeSDK({
     traceExporter: new OTLPTraceExporter({
         // optional - default url is http://localhost:4318/v1/traces
         // url: "<your-otlp-endpoint>/v1/traces",
@@ -22,4 +22,4 @@ const sdk = new opentelemetry.NodeSDK({
         getNodeAutoInstrumentations()
     ],
 });
-export default sdk;
+export default openTelemetrySDK;

@@ -1,5 +1,5 @@
 import { Kafka } from "kafkajs";
-import { logger } from "../utils";
+import { logger } from "../utils/logger";
 
 
 const kafka = new Kafka({
